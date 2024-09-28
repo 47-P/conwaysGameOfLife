@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h> // Including this libray to use _kbhit() function to listen to keys
 
-int main()
+int main(void)
 {
     // Defining the variables
     int maxRow, maxColumn, alive = 0, dead = 0, row, column;
@@ -87,11 +87,6 @@ int main()
                                     {
                                         alive++;
                                     }
-
-                                    else if (grid1[r][c] == 0)
-                                    {
-                                        dead++;
-                                    }
                                 }
                             }
 
@@ -111,7 +106,6 @@ int main()
                             }
 
                             alive = 0;
-                            dead = 0;
                         }
                     }
 
@@ -147,6 +141,5 @@ int main()
             keyPressed = 0;
         }
     }
-
-    return 0;
 }
+
