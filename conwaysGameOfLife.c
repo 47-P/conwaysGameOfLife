@@ -90,7 +90,7 @@ int main(void)
                                 }
                             }
 
-                            if (alive < 3)
+                            if (alive == 0)
                             {
                                 grid2[row][column] = 0;
                             }
@@ -140,6 +140,7 @@ int main(void)
         {
             keyPressed = 0;
         }
+
+        
     }
 }
-
