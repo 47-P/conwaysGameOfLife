@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <conio.h> // Including this libray to use _kbhit() function to listen to keys
+#include <time.h> // Including this library to generate random numbers between 1 and 0
+#include <stdlib.h>
 
 int main(void)
 {
     // Defining the variables
-    int maxRow, maxColumn, alive = 0, dead = 0, row, column;
+    int maxRow, maxColumn, alive = 0, dead = 0, row, column, randomNumber;
     char ch;
     int keyPressed = 0; // A flag to change when a key is pressed
+
 
     printf("-- Welcome to Conway's Game of Life --\n\n");
     printf("First, let's admire how beautiful yet simple this game is\n");
@@ -24,6 +27,9 @@ int main(void)
     {
         for (column = 0; column < maxColumn; column++)
         {
+            // following two lines of code is to generate a random number between 1 and 0 for populating the grid 
+            randomNumber = rand() % 2;
+
             if (column == 0 || column == maxColumn - 1 || row == 0 || row == maxRow - 1)
             {
                 grid1[row][column] = 8;
@@ -32,14 +38,14 @@ int main(void)
 
             else if (column % 2 == 0)
             {
-                grid1[row][column] = 1;
-                grid2[row][column] = 1;
+                grid1[row][column] = randomNumber;
+                grid2[row][column] = randomNumber;
             }
 
             else
             {
-                grid1[row][column] = 0;
-                grid2[row][column] = 0;
+                grid1[row][column] = randomNumber;
+                grid2[row][column] = randomNumber;
             }
         }
     }
@@ -93,6 +99,11 @@ int main(void)
                             if (alive == 0)
                             {
                                 grid2[row][column] = 0;
+                            }
+
+                            else if (alive == 1 || alive == 2)
+                            {
+                                grid2[row][column] == grid1[row][column];
                             }
 
                             else if (alive == 3)
